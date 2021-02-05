@@ -1,0 +1,9 @@
+.add-button {
+    max-width: 150px; 
+    max-height: 50px; 
+    justify-self: flex-end;
+}
+
+.add-button:last-child {
+    margin-left: auto;
+}

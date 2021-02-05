@@ -1,0 +1,14 @@
+@import url("../page/__wrapper/page__wrapper.css");
+@import url("./__break/page__break.css");
+
+.page {
+    font-family: 'Inter', 'sans-serif';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #000;
+    color: white;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+

@@ -1,0 +1,10 @@
+.page__break {
+    opacity: 0.2;
+    margin: 0px 0px 36px 0px;
+}
+
+@media screen and (max-width: 320px) {
+    .page__break {
+        margin: 0px 0px 38px;     
+    }
+}
