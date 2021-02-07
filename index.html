@@ -11,6 +11,24 @@
 </head>
 
 <body class="page">
+  <div class="popup">
+    <button class="close-btn"></button>
+    <div class="popup__container">
+      <form class="popup__form">
+        <p class="popup__form-title">Edit profile</p>
+        
+          <!-- Form section for Name-->
+          <input type="text" name="name" class="popup__form-control" placeholder="Name">
+       
+        <!-- Form section for Title-->
+        
+          <input type="text" name="about me" class="popup__form-control" placeholder="About Me">
+    
+        <!-- Save button -->
+        <button type="submit" class="submit-button" alt="save button"></button>
+      </form>
+    </div>
+  </div>
   <div class="page__wrapper">
     <header class="header">
       <img src="./images/logo.png" class="logo" alt="logo">
@@ -18,60 +36,70 @@
     <main>
       <hr class="page__break">
       <nav class="profile">
-        <img src="./images/profile.jpg" class="profile__avatar" alt="profile image">
+        <img src="./images/Raven Visor Off.png" class="profile__avatar" alt="profile image">
         <div class="profile__info">
-          <h1 class="profile__title">Jacques Cousteau</h1>
-          <a href="#" class="edit-button"><img src="./images/editbutton.png" alt="edit button"></a>
-          <p class="profile__subtitle">Explorer</p>
+          <div class="profile__info-container">
+            <h1 class="profile__title">Dogue GoudBeau</h1>
+            <button type="button" class="edit-button" alt="edit button"></button>
+           
+          </div>
+          <p class="profile__subtitle">Explorer</p>     
         </div>
-        <a href="#" class="add-button"><img src="./images/addbutton.png"></a>
+        <button type="button" class="add-button" alt="add button"></button>
       </nav>
+
       <section class="photo-grid">
         <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-1088404-unsplash.jpg" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 1</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
-          </div>
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-108844404-unsplash.png" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 2</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
-          </div>
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-1404581-unsplash.png" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 3</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
-          </div>
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-1404681-unsplash.png" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 4</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
-          </div>     
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-1556355-unsplash.png" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 5</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
+          <img src="./images/Raven Seamus Nebula Fixed Scaling.jpg" class="photo-grid__image" alt="Dog on moon">
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Nebula</h2>
+            <button type="button" class="like-button" alt="like button"></button>  
           </div>   
         </article>
+
         <article class="photo-grid__container">
-          <img src="./images/holders/kirill-pershin-15564355-unsplash.png" class="photo-grid__image" alt="">
-          <div class="photo-grid__nav-container">
-            <h2 class="photo-grid__title">Place 6</h2>
-            <a href="#"><img src="./images/likebutton.png" class="like-button" alt="like button"></a>
-          </div>
+          <img src="./images/Nyan Sawyer Fixed.jpg" class="photo-grid__image" alt="Dog on rainbow">
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Utah</h2>
+            <button type="button" class="like-button" alt="like button"></button>   
+          </div>  
+        </article>
+
+        <article class="photo-grid__container">
+          <img src="./images/Hey There, Finally Awake Fixed.jpg" class="photo-grid__image" alt="">        
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Milky Way</h2>
+            <button type="button" class="like-button" alt="like button"></button>   
+          </div>          
+        </article>
+
+        <article class="photo-grid__container">
+          <img src="./images/Space Station Sawyer Fixed Scaling.jpg" class="photo-grid__image" alt="">      
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Space Station</h2>
+            <button type="button" class="like-button" alt="like button"></button>   
+          </div>     
+        </article>
+
+        <article class="photo-grid__container">
+          <img src="./images/raven moon2.jpg" class="photo-grid__image" alt="">
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Moon</h2>
+            <button type="button" class="like-button" alt="like button"></button>  
+          </div> 
+        </article>
+
+        <article class="photo-grid__container">
+          <img src="./images/Seamus Ocean Duckee Scale fix (1).jpg" class="photo-grid__image" alt="Ocean duckee">
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title">Earth</h2>
+            <button type="button" class="like-button" alt="like button"></button> 
+          </div>  
         </article>
       </section>
+
       <footer class="footer">
-        <h3>&copy; 2021 Around the U.S.</h3>
+        <h3 class="footer__text">&copy; 2021 Around the U.S.</h3>
       </footer>
     </main>
   </div>

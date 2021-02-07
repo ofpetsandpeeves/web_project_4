@@ -1,0 +1,12 @@
+.popup__form-control {
+    max-width: 358px;
+    min-width: 238px;
+    margin: 0;
+    padding-bottom: 13px;
+    margin: 0 0 30px;
+    border-style: hidden hidden solid hidden;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.2);
+    color: black;
+}
+

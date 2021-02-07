@@ -5,3 +5,9 @@
     font-style: normal;
     font-weight: normal;
 }
+
+@media screen and (max-width: 1145px) {
+    .profile__title {
+        font-size: 22px;
+    }
+}

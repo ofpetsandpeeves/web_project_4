@@ -1,5 +1,20 @@
 .edit-button {
-    max-width: 24px;
-    max-height: 24px;
     margin: 15px 0px 0px 18px;
+    background: url(../../images/editbutton.png) no-repeat;
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+.edit-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1145px) {
+    .edit-button {
+        background: url(../../images/editbuttonsmall.png) no-repeat;
+        margin: 0 0 0 10px;
+        width: 18px;
+        height: 18px;
+    }
 }

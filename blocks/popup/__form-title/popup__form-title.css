@@ -1,7 +1,8 @@
-.photo-grid__title {
+.popup__form-title {
     color: black;
     font-size: 24px;
     font-weight: 900;
-    margin: 0;
     padding: 0;
-} 
+    margin: 34px 0 54px;
+    line-height: 17px;
+}

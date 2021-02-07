@@ -3,3 +3,10 @@
     margin: 16px 0 0; 
     padding: 0;
 }
+
+@media screen and (max-width: 1145px) {
+    .profile__subtitle {
+        font-size: 14px;
+        margin: 14px 0 0;
+    }
+}

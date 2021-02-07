@@ -1,9 +1,26 @@
 .add-button {
-    max-width: 150px; 
-    max-height: 50px; 
+    width: 150px; 
+    height: 50px; 
     justify-self: flex-end;
+    background: url(../../images/addbuttonlarge.png) no-repeat;
+    border: none;
 }
 
 .add-button:last-child {
     margin-left: auto;
+}
+
+.add-button:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1145px) {
+    .add-button {
+        width: 282px;
+        background: url(../../images/addbuttonsmall.png);
+    }
+
+    .add-button:last-child {
+        margin: 36px 0 0;
+    }
 }
