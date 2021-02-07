@@ -13,7 +13,7 @@
 @media screen and (max-width: 475px) {
     .popup__container {
         height: 323px;
-        width: 282px; 
+        width: 282px;
         flex-direction: unset;
     }
 }

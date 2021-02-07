@@ -5,14 +5,17 @@
     height: 40px;
     border: none;
     padding: 0;
-    margin-left: 460px;
+    margin: 0 0 0 460px;
+}
+
+.close-btn:hover {
+    opacity: 0.6;
 }
 
 @media screen and (max-width: 475px) {
     .close-btn {
         width: 26px;
         height: 26px;
-        margin-bottom: 14px;
-        margin-left: 245px;
+        margin: 0 0 14px 245px;
     }
 }

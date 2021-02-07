@@ -1,16 +1,21 @@
-# Project 4: Around The U.S.
+# Project Name: Around The U.S. (but really, world)
 
-### Overview
+### Project Description
 
-* Figma
-* Images
+This is a project about traveling around the U.S., however I took some liberties on the theme. My spin is that it's a project about dogs traveling around space and the world.
 
-**Figma**
+Built to design from a Figma mockup
 
-* [Link to the project in Figma](https://www.figma.com/file/SurN1jaeEQIhuZEDMhmWWf/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+### Technology and techniques used
 
-**Images**
+* HTML
+* CSS
+* Javascript 
+* BEM methodology (naming conventions and file organizations)
+* Media queries for responsive design
+* Grid and flexbox
+* Calculations
+* Psuedo elements/classes
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-
-Have fun with JavaScript!
+### Project Link
+https://ofpetsandpeeves.github.io/web_project_4/
