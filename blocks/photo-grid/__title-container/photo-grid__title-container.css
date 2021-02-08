@@ -1,9 +1,9 @@
 .photo-grid__title-container {
     display: flex;
-    width: 246px;
     justify-content: space-between;
     background: white;
-    height: 23px;
+    width: 282px;
     padding: 25px 15px 31px 21px;
     border-radius: 0 0 10px 10px;
+    box-sizing: border-box;
 }

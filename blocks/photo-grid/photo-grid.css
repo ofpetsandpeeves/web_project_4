@@ -1,6 +1,7 @@
 @import url("./__image/photo-grid__image.css");
 @import url("./__title/photo-grid__title.css");
 @import url("./__title-container/photo-grid__title-container.css");
+@import url("./__container/photo-grid__container.css");
 
 .photo-grid {
     display: grid;
