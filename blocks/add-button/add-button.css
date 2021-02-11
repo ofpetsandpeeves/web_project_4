@@ -4,23 +4,19 @@
     justify-self: flex-end;
     background: url(../../images/addbuttonlarge.png) no-repeat;
     border: none;
-}
-
-.add-button:last-child {
     margin-left: auto;
+    transition: linear;
 }
 
 .add-button:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1145px) {
     .add-button {
         width: 282px;
         background: url(../../images/addbuttonsmall.png);
-    }
-
-    .add-button:last-child {
         margin: 36px 0 0;
     }
 }

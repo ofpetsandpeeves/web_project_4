@@ -1,95 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="./pages/index.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Teri Pizzolatto">
   <meta name="keywords" content="Around the U.S.">
   <meta name="description" content="Fourth web project for Yandex Practicum">
-  <title>Around the U.S.</title>
+  <title>Around The U.S.</title>
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
-
 <body class="page">
-  <div class="popup">
-    <button type="button" class="close-btn" aria-label="close button"></button>
-    <div class="popup__container">
-      <form class="popup__form" method="GET">
-        <p class="popup__form-title">Edit profile</p>
-          <!-- Form section for Name-->
-          <input type="text" name="name" class="popup__form-control popup__form-control_type_name" value="Dogue GoudBeau"> 
-        <!-- Form section for Title-->
-          <input type="text" name="about me" class="popup__form-control popup__form-control_type_about" value="Explorer">
-        <!-- Save button -->
-        <button type="submit" class="submit-button" aria-label="save button"></button>
-      </form>
-    </div>
-  </div>
   <div class="page__wrapper">
     <header class="header">
-      <img src="./images/logo.png" class="logo" alt="logo">
+      <div class="logo"></div>
     </header>
     <main>
-      <hr class="page__break">
-      <nav class="profile">
-        <img src="./images/Raven Visor Off.png" class="profile__avatar" alt="profile image">
+      <section class="profile">
+        <img src="./images/RavenVisorOff.png" class="profile__avatar" alt="profile image">
         <div class="profile__info">
           <div class="profile__info-container">
             <h1 class="profile__title">Dogue GoudBeau</h1>
-            <button type="button" class="edit-button" aria-label="edit button"></button> 
+            <button type="button" class="edit-button link" aria-label="edit button"></button>
           </div>
-          <p class="profile__subtitle">Explorer</p>     
+          <p class="profile__subtitle">Explorer</p>
         </div>
-        <button type="button" class="add-button" aria-label="add button"></button>
-      </nav>
-      <section class="photo-grid">
-        <article class="photo-grid__container">
-          <img src="./images/Raven Seamus Nebula Fixed Scaling.jpg" class="photo-grid__image" alt="Dogs on Nebula">
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Nebula</h2>
-            <button type="button" class="like-button" aria-label="like button"></button>  
-          </div>   
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/Nyan Sawyer Fixed.jpg" class="photo-grid__image" alt="Dog on rainbow in Utah">
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Utah</h2>
-            <button type="button" class="like-button" aria-label="like button"></button>   
-          </div>  
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/Hey There, Finally Awake Fixed.jpg" class="photo-grid__image" alt="Two dogs">        
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Milky Way</h2>
-            <button type="button" class="like-button" aria-label="like button"></button>   
-          </div>          
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/Space Station Sawyer Fixed Scaling.jpg" class="photo-grid__image" alt="Dog on space station">      
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Space Station</h2>
-            <button type="button" class="like-button" aria-label="like button"></button>   
-          </div>     
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/raven moon2.jpg" class="photo-grid__image" alt="Dog on moon">
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Moon</h2>
-            <button type="button" class="like-button" aria-label="like button"></button>  
-          </div> 
-        </article>
-        <article class="photo-grid__container">
-          <img src="./images/Seamus Ocean Duckee Scale fix (1).jpg" class="photo-grid__image" alt="Ocean duckee">
-          <div class="photo-grid__title-container">
-            <h2 class="photo-grid__title">Earth</h2>
-            <button type="button" class="like-button" aria-label="like button"></button> 
-          </div>  
-        </article>
+        <button type="button" class="add-button link" aria-label="add button"></button>
       </section>
-      <footer class="footer">
-        <h3 class="footer__text">&copy; 2021 Around the U.S.</h3>
-      </footer>
+      <section class="photos">
+        <ul class="photo-grid">
+          <li class="photo-grid__container">
+            <img src="./images/RavenSeamusNebulaFixedScaling.jpg" class="photo-grid__image" alt="Dogs on Nebula">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Nebula</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+          <li class="photo-grid__container">
+            <img src="./images/NyanSawyerFixed.jpg" class="photo-grid__image" alt="Dog on rainbow in Utah">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Utah</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+          <li class="photo-grid__container">
+            <img src="./images/HeyThereFinallyAwakeFixed.jpg" class="photo-grid__image" alt="Two dogs">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Milky Way</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+          <li class="photo-grid__container">
+            <img src="./images/SpaceStationSawyerFixedScaling.jpg" class="photo-grid__image" alt="Dog on space station">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Space Station</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+          <li class="photo-grid__container">
+            <img src="./images/ravenmoon.jpg" class="photo-grid__image" alt="Dog on moon">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Moon</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+          <li class="photo-grid__container">
+            <img src="./images/SeamusOceanDuckeeScalefix.jpg" class="photo-grid__image" alt="Ocean duckee">
+            <div class="photo-grid__title-container">
+              <h2 class="photo-grid__title">Earth</h2>
+              <button type="button" class="like-button link" aria-label="like button"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
+    <footer class="footer">
+      <h3 class="footer__text">&copy; 2021 Around The U.S.</h3>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button type="button" class="close-btn link" aria-label="close button"></button>
+        <form class="popup__form" name="profile__modal" method="GET">
+          <h4 class="popup__form-title">Edit profile</h4>
+            <!-- Form section for Name-->
+            <input type="text" name="name" class="popup__form-control popup__form-control_type_name">
+          <!-- Form section for Title-->
+            <input type="text" name="about-me" class="popup__form-control popup__form-control_type_about">
+          <!-- Save button -->
+          <button type="submit" class="submit-button link" aria-label="save button"></button>
+        </form>
+      </div>
+    </div>
   </div>
 <script src="scripts/index.js"></script>
 </body>

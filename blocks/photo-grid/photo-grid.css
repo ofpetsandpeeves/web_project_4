@@ -8,15 +8,17 @@
     grid: auto / repeat(3, 1fr);
     grid-gap: 20px 17px;
     margin: 50px 0 60px;
+    padding: 0;
+    list-style-type: none;
 }
 
-@media screen and (min-width: 1146px) and (max-width: 1279px) {
+@media screen and (min-width: 1001px) and (max-width: 1279px) {
     .photo-grid {
         grid: auto / repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 1145px) {
+@media screen and (max-width: 1000px) {
     .photo-grid {
         display: flex;
         flex-direction: column;

@@ -5,17 +5,29 @@
     height: 40px;
     border: none;
     padding: 0;
-    margin: 0 0 360px 470px;
+    top: -40px;
+    left: 430px;
+    position: absolute;
+    margin: 0;
 }
 
 .close-btn:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (min-width: 531px) and (max-width: 560px) {
+  .close-btn {
+    left: 280px;
+  }
+}
+
+@media screen and (max-width: 530px) {
     .close-btn {
-        width: 26px;
-        height: 26px;
-        margin: 0 0 395px 255px;
+      background: url(../../images/closesmall.png) no-repeat;
+      background-position: center;
+      width: 26px;
+      height: 26px;
+      left: 250px;
     }
 }

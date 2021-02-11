@@ -3,7 +3,7 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 1145px) {
+@media screen and (max-width: 900px) {
     .page__wrapper {
         width: calc(100% - 2*19px);
     }

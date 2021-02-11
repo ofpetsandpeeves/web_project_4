@@ -1,7 +1,7 @@
 .popup__form-control {
     max-width: 358px;
     min-width: 238px;
-    padding-bottom: 13px;
+    padding: 0 0 11px;
     margin: 0 0 30px;
     border-style: hidden hidden solid hidden;
     border-width: 1px;
@@ -9,6 +9,6 @@
     color: black;
     font-weight: 400;
     font-size: 14px;
-    line-height: 0.8;
+    line-height: 0.5;
 }
 

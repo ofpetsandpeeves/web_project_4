@@ -1,20 +1,23 @@
 .submit-button {
-    background: url(../../images/submitbutton\ 2.png) no-repeat;
+    background: url(../../images/submitbutton.png) no-repeat;
     background-position: center;
     width: 358px;
     height: 50px;
-    margin: 18px 0 36px;
+    margin: 15px 0 0;
     border: none;
 }
 
 .submit-button:hover {
     opacity: 0.8;
+    cursor: pointer;
 }
 
 
-@media screen and (max-width: 475px) {
+@media screen and (max-width: 560px) {
     .submit-button {
-        width: 238px;
-        height: 46px;
+      background: url(../../images/submitsmall.png) no-repeat;
+      background-position: center;
+      width: 238px;
+      height: 46px;
     }
 }
