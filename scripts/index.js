@@ -7,45 +7,31 @@ let popup = document.querySelector(".popup"); //use when direct changes to modal
 let onEdit = document.querySelector(".edit-button"); // when you click edit this happens
 let onClose = document.querySelector(".close-btn");
 
-function textSavedContent() {
+function editPopupInputFields() {
   profileName.textContent = formNameInput.value; //equal to the value
   profileAboutMe.textContent = formAboutMeInput.value;
 }
 
-function textNotSaved() {
+function popupInputFields() {
   formNameInput.value = profileName.textContent;
   formAboutMeInput.value = profileAboutMe.textContent;
 }
 
+function openModal() {
+  popup.classList.toggle("popup_opened");
+  popupInputFields();
+  }
 
-function ravenOpenModal(e) {
-  let open = popup.classList.toggle("popup_opened");
+function closeModal() {
+  popup.classList.toggle("popup_opened");
+}
 
-  if (!open) {
-    e.preventDefault();
-    textSavedContent();
+function submitModal(e) {
+  e.preventDefault();
+  editPopupInputFields();
+  closeModal();
+}
 
-  } else {
-    textNotSaved();
-}};
-
-function exitWithoutSave() {
-  let open = popup.classList.toggle("popup_opened");
-
-  if (!open) {
-    textNotSaved();
-}};
-
-
-
-onEdit.addEventListener("click", ravenOpenModal);
-onClose.addEventListener("click", exitWithoutSave);
-form.addEventListener("submit", ravenOpenModal);
-
-
-
-
-
-
-
-
+onEdit.addEventListener("click", openModal);
+onClose.addEventListener("click", closeModal);
+form.addEventListener("submit", submitModal);

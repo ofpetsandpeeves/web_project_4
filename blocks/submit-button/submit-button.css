@@ -1,6 +1,5 @@
 .submit-button {
-    background: url(../../images/submitbutton.png) no-repeat;
-    background-position: center;
+    background: url(../../images/submitbutton.png) no-repeat center;
     width: 358px;
     height: 50px;
     margin: 15px 0 0;
@@ -15,8 +14,7 @@
 
 @media screen and (max-width: 560px) {
     .submit-button {
-      background: url(../../images/submitsmall.png) no-repeat;
-      background-position: center;
+      background: url(../../images/submitsmall.png) no-repeat center;
       width: 238px;
       height: 46px;
     }

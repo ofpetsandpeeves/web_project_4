@@ -1,6 +1,5 @@
 .close-btn {
-    background: url(../../images/closeicon.png) no-repeat;
-    background-position: center;
+    background: url(../../images/closeicon.png) no-repeat center;
     width: 40px;
     height: 40px;
     border: none;
@@ -24,8 +23,7 @@
 
 @media screen and (max-width: 530px) {
     .close-btn {
-      background: url(../../images/closesmall.png) no-repeat;
-      background-position: center;
+      background: url(../../images/closesmall.png) no-repeat center;
       width: 26px;
       height: 26px;
       left: 250px;
