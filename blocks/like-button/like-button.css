@@ -1,9 +1,9 @@
 .like-button {
     width: 21px;
     height: 19px;
-    background: url(../../images/likebutton.png);
+    background: url(../../images/likebutton.png) no-repeat center;
     border: none;
-    align-self: flex-end;
+    align-self: center;
 }
 
 .like-button:hover {
@@ -12,6 +12,6 @@
 }
 
 .like-button:active {
-    background: url(../../images/likebuttonactive.png);
+    background: url(../../images/likebuttonactive.png) no-repeat center;
     opacity: 100%;
 }
