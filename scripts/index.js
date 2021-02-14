@@ -18,8 +18,8 @@ function popupInputFields() {
 }
 
 function openModal() {
-  popup.classList.toggle("popup_opened");
   popupInputFields();
+  popup.classList.toggle("popup_opened");
   }
 
 function closeModal() {
