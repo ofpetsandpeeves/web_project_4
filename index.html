@@ -26,70 +26,52 @@
         </div>
         <button type="button" class="add-button link" aria-label="add button"></button>
       </section>
-      <section class="photos">
+      <section class="photo-grid-section">
         <ul class="photo-grid">
-          <li class="photo-grid__container">
-            <img src="./images/RavenSeamusNebulaFixedScaling.jpg" class="photo-grid__image" alt="Dogs"></img>
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Nebula</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
-          <li class="photo-grid__container">
-            <img src="./images/NyanSawyerFixed.jpg" class="photo-grid__image" alt="Dog on rainbow in Utah">
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Utah</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
-          <li class="photo-grid__container">
-            <img src="./images/HeyThereFinallyAwakeFixed.jpg" class="photo-grid__image" alt="Two dogs">
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Milky Way</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
-          <li class="photo-grid__container">
-            <img src="./images/SpaceStationSawyerFixedScaling.jpg" class="photo-grid__image" alt="Dog on space station">
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Space Station Name Super long what happens</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
-          <li class="photo-grid__container">
-            <img src="./images/ravenmoon.jpg" class="photo-grid__image" alt="Dog on moon">
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Moon</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
-          <li class="photo-grid__container">
-            <img src="./images/SeamusOceanDuckeeScalefix.jpg" class="photo-grid__image" alt="Ocean duckee">
-            <div class="photo-grid__title-container">
-              <h2 class="photo-grid__title">Earth</h2>
-              <button type="button" class="like-button link" aria-label="like button"></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
     <footer class="footer">
       <p class="footer__text">&copy; 2021 Around The U.S.</p>
     </footer>
-    <div class="popup">
-      <div class="popup__container">
+    <div class="modal">
+      <div class="modal__container">
         <button type="button" class="close-btn link" aria-label="close button"></button>
-        <form class="popup__form" name="profile__modal" method="POST">
-          <h4 class="popup__form-title">Edit profile</h4>
+        <form class="modal__form" name="profile__modal" method="POST">
+          <h4 class="modal__form-title">Edit profile</h4>
             <!-- Form section for Name-->
-            <input placeholder="Name" type="text" name="name" class="popup__form-control popup__form-control_type_name">
+            <input placeholder="Name" type="text" name="name" class="modal__form-control modal__form-control_type_name">
           <!-- Form section for Title-->
-            <input placeholder="About me" type="text" name="about-me" class="popup__form-control popup__form-control_type_about">
+            <input placeholder="About me" type="text" name="about-me" class="modal__form-control modal__form-control_type_about">
           <!-- Save button -->
           <button type="submit" class="submit-button link" aria-label="save button"></button>
         </form>
       </div>
     </div>
+    <div class="modal modal-images">
+      <div class="modal__container">
+        <button type="button" class="close-btn close-btn_images link" aria-label="close button"></button>
+        <form class="modal__form modal__form_images" name="image__form" method="POST">
+          <h4 class="modal__form-title modal__form-title_images">New place</h4>
+            <!-- Form section for Title -->
+            <input placeholder="Title" type="text" name="title" class="modal__form-control modal__form-control_images modal__form-control_type_title">
+          <!-- Form section for Title-->
+            <input placeholder="Image link" type="text" name="image-link" class="modal__form-control modal__form-control_images modal__form-control_type_image">
+          <!-- Create button -->
+          <button type="create" class="create-button link" aria-label="create button"></button>
+        </form>
+      </div>
+    </div>
+    <template class="photo-grid-template">
+        <li class="photo-grid__container">
+          <button type="button" class="delete-btn link" aria-label="delete button"></button>
+          <img src="" class="photo-grid__image"></img>
+          <div class="photo-grid__title-container">
+            <h2 class="photo-grid__title"></h2>
+            <button type="button" class="like-button link" aria-label="like button"></button>
+          </div>
+        </li>
+    </template>
   </div>
 <script src="scripts/index.js"></script>
 </body>

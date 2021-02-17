@@ -1,0 +1,5 @@
+@media screen and (max-width: 560px) {
+  .modal__form_images {
+      padding: 30px 20px;
+  }
+}

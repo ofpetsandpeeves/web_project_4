@@ -1,0 +1,10 @@
+.modal__form-control_images {
+  min-width: 200px;
+
+}
+
+@media screen and (max-width: 530px) {
+  .modal__form-control_images {
+    margin: 0 0 20px;
+  }
+}

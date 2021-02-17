@@ -1,0 +1,14 @@
+@media screen and (min-width: 531px) and (max-width: 560px) {
+  .close-btn_images {
+    left: 237px;
+}
+}
+
+@media screen and (max-width: 530px) {
+  .close-btn_images {
+    width: 30px;
+    height: 30px;
+    left: 236px;
+    top: -25px;
+  }
+}
