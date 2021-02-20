@@ -1,0 +1,8 @@
+@import url("./__title/image-popup__title.css");
+@import url("./__image/image-popup__image.css");
+@import url("./__figure/image-popup__figure.css");
+
+.image-popup {
+  background-color: rgba(0, 0, 255, 0);
+  border: 1px green solid;
+}

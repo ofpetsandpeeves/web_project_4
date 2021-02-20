@@ -1,3 +1,4 @@
+@import url("./_active/like-button_active.css");
 .like-button {
     width: 21px;
     height: 19px;
@@ -11,7 +12,3 @@
     cursor: pointer;
 }
 
-.like-button:active {
-    background: url(../../images/likebuttonactive.png) no-repeat center;
-    opacity: 100%;
-}

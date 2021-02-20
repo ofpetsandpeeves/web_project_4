@@ -34,7 +34,8 @@
     <footer class="footer">
       <p class="footer__text">&copy; 2021 Around The U.S.</p>
     </footer>
-    <div class="modal">
+    <!-- Modal for Profile edits-->
+    <div class="modal modal_type_profile">
       <div class="modal__container">
         <button type="button" class="close-btn link" aria-label="close button"></button>
         <form class="modal__form" name="profile__modal" method="POST">
@@ -48,18 +49,29 @@
         </form>
       </div>
     </div>
-    <div class="modal modal-images">
+    <!-- Modal for Adding Images-->
+    <div class="modal modal_type_images">
       <div class="modal__container">
         <button type="button" class="close-btn close-btn_images link" aria-label="close button"></button>
-        <form class="modal__form modal__form_images" name="image__form" method="POST">
+        <form class="modal__form modal__form_images" name="image__form" method="GET">
           <h4 class="modal__form-title modal__form-title_images">New place</h4>
             <!-- Form section for Title -->
             <input placeholder="Title" type="text" name="title" class="modal__form-control modal__form-control_images modal__form-control_type_title">
-          <!-- Form section for Title-->
-            <input placeholder="Image link" type="text" name="image-link" class="modal__form-control modal__form-control_images modal__form-control_type_image">
+          <!-- Form section for Link-->
+            <input placeholder="Image link" type="link" name="image-link" class="modal__form-control modal__form-control_images modal__form-control_type_image">
           <!-- Create button -->
-          <button type="create" class="create-button link" aria-label="create button"></button>
+          <button type="submit" class="create-button link" aria-label="create button"></button>
         </form>
+      </div>
+    </div>
+    <!-- Modal for image popup-->
+    <div class="modal modal_type_image-popup">
+      <div class="modal__container image-popup">
+        <figure class="image-popup__figure">
+          <img class="image-popup__image" src="" alt="">
+          <button type="button" class="close-btn close-btn_images-popup link" aria-label="close button"></button>
+          <figcaption class="image-popup__title"></figcaption>
+        </figure>
       </div>
     </div>
     <template class="photo-grid-template">

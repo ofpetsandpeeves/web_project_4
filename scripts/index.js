@@ -1,7 +1,16 @@
 // variables related to forms/modals
-const addPhotoModal = document.querySelector(".modal-images"); // toggle for addphoto modal modifier visibility
-const profileForm = document.querySelector(".modal__form"); // form for profile modal
-const profileModal = document.querySelector(".modal"); // toggle for profile modal modifier for visbility
+// toggle for addphoto modal modifier visibility
+const addPhotoModal = document.querySelector(".modal_type_images");
+// toggle for profile modal modifier for visbility
+const profileModal = document.querySelector(".modal_type_profile");
+// form for profile modal currently-- may have to update for capturing image form info
+const profileForm = document.querySelector(".modal__form");
+// const for modal_type_imagepopup
+const imageModalPopup = document.querySelector(".modal_type_image-popup");
+// Variables for array iteration
+// set up for array clone- photo-grid__container li = template
+const photoGridTemplate = document.querySelector(".photo-grid-template").content.querySelector(".photo-grid__container");
+
 
 // variables related to forms/modals content
 const formAboutMeInput = document.querySelector(".modal__form-control_type_about");
@@ -15,95 +24,155 @@ const closeButton = document.querySelector(".close-btn");
 const createButton = document.querySelector(".create-button");
 const editButton = document.querySelector(".edit-button");
 const closeAddImageButton = document.querySelector(".close-btn_images");
-const likeButton = document.querySelector(".like-button");
+
+const photoPopupCloseButton = document.querySelector(".close-btn_images-popup");
+
+
 
 //functions
+//form input values
 function editModalInputFields() {
   profileName.textContent = formNameInput.value; //equal to the value
   profileAboutMe.textContent = formAboutMeInput.value;
 }
-
 function modalInputFields() {
   formNameInput.value = profileName.textContent;
   formAboutMeInput.value = profileAboutMe.textContent;
 }
 
-// edit button
+// toggle modal windows
+function toggleModalWindows(modal) {
+  modal.classList.toggle("modal_opened");
+}
+// Open profile edit button
 function openProfileModal() {
-  profileModal.classList.toggle("modal_opened");
-  modalInputFields();
+  if(!profileModal.classList.contains("modal_opened")) {
+    modalInputFields();
+  }
+  toggleModalWindows(profileModal);
 }
-
-function openAddImageModal() {
-  addPhotoModal.classList.toggle("modal-images_opened");
-}
-
-// close button on edit profile
-function closeProfileModal() {
-  profileModal.classList.toggle("modal_opened");
-}
-
-function closeAddImageModal() {
-  addPhotoModal.classList.toggle("modal-images_opened")
-}
-
+// submit handler for profile modal
 function submitProfileModal(e) {
   e.preventDefault();
   editModalInputFields();
-  closeProfileModal();
+  toggleModalWindows(profileModal);
 }
 
+
+// open profile modal
 editButton.addEventListener("click", openProfileModal);
-closeButton.addEventListener("click", closeProfileModal);
+// close profile modal
+closeButton.addEventListener("click", () => {
+  toggleModalWindows(profileModal);
+});
+// submit profile modal
 profileForm.addEventListener("submit", submitProfileModal);
-addButton.addEventListener("click", openAddImageModal);
-closeAddImageButton.addEventListener("click", closeAddImageModal);
+// open add image modal
+addButton.addEventListener("click", () => {
+  toggleModalWindows(addPhotoModal);
+});
+//close add image modal
+
+
+photoPopupCloseButton.addEventListener("click", () => {
+  toggleModalWindows(imageModalPopup);
+});
 
 
 const initialCards = [
   {
     name: "Nebula",
-    link: "./images/RavenSeamusNebulaFixedScaling.jpg"
+    link: "./images/RavenSeamusNebulaFixedScaling.jpg",
+    text: "Nebula"
   },
   {
     name: "Utah",
-    link: "./images/NyanSawyerFixed.jpg"
+    link: "./images/NyanSawyerFixed.jpg",
+    text: "Utah"
   },
   {
     name: "Milky Way",
-    link: "./images/HeyThereFinallyAwakeFixed.jpg"
+    link: "./images/HeyThereFinallyAwakeFixed.jpg",
+    text: "Milky way"
   },
   {
     name: "Space Station",
-    link: "./images/SpaceStationSawyerFixedScaling.jpg"
+    link: "./images/SpaceStationSawyerFixedScaling.jpg",
+    text: "Space station"
   },
   {
     name: "Moon",
-    link: "./images/ravenmoon.jpg"
+    link: "./images/ravenmoon.jpg",
+    text: "Moon"
   },
   {
     name: "Earth",
-    link: "./images/SeamusOceanDuckeeScalefix.jpg"
+    link: "./images/SeamusOceanDuckeeScalefix.jpg",
+    text: "Earth"
   }
 ];
 
+// close Create button
+createButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("Hello");
+  toggleModalWindows(addPhotoModal);
+
+  //add a function that takes an object and adds it to array
+});
+
+const imageModalIFormInput = document.querySelector(".modal__form-control_images");
+// making input equal to an object to add to array with push(
+
+closeAddImageButton.addEventListener("click", () => {
+  toggleModalWindows(addPhotoModal);
+});
+
+
+
+// array iteration
 initialCards.forEach(data => {
-    const photoGridTemplate = document.querySelector(".photo-grid-template").content.querySelector(".photo-grid__container");
-    const photoGridElement = photoGridTemplate.cloneNode(true);
 
-    const photoGridImage = photoGridTemplate.querySelector(".photo-grid__image");
-    const photoGridTitle = photoGridTemplate.querySelector(".photo-grid__title");
+  // photo-grid__container li = template
+  const photoGridElement = photoGridTemplate.cloneNode(true);
+  const photoGridImage = photoGridElement.querySelector(".photo-grid__image");
+  const photoGridTitle = photoGridElement.querySelector(".photo-grid__title");
 
-    const photoGridLikeButton = photoGridTemplate.querySelector(".like-button");
-    const photoGridDeleteButton = photoGridTemplate.querySelector(".delete-btn");
+  photoGridTitle.textContent //title
+  photoGridImage.src //image url
 
-    photoGridTitle.textContent = data.name;
-    photoGridImage.src = data.link;
+  //photo-grid ul = html
+  const photoGridList = document.querySelector(".photo-grid");
+  // buttons
+  const likeButton = photoGridElement.querySelector(".like-button");
 
-    const photoGridList = document.querySelector(".photo-grid");
-    photoGridList.prepend(photoGridElement);
+  photoGridTitle.textContent = data.name;
+  photoGridImage.src = data.link;
+  photoGridImage.alt = data.text;
+  photoGridList.prepend(photoGridElement);
+
+  // toggle image popup modal with correct info
+  photoGridImage.addEventListener("click", () => {
+
+    photoGridImageSource.src = data.link;
+    photoGridImageTitle.textContent = data.name;
+    toggleModalWindows(imageModalPopup);
+  });
+
+  // clicking like
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("like-button_active");
+  });
+  const photoGridDeleteButton = photoGridElement.querySelector(".delete-btn");
+
+    //event for deleting images
+  photoGridDeleteButton.addEventListener("click", function () {
+    const photoGridItem = photoGridDeleteButton.closest(".photo-grid__container");
+    photoGridItem.remove();
   });
 
 
+});
 
-// likeButton.addEventListener("click", likeButtonToggle);
+
+
