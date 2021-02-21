@@ -1,6 +1,3 @@
-// variables related to forms/modals
-// toggle for addphoto modal modifier visibility
-
 // toggle for profile modal modifier for visbility
 const profileModal = document.querySelector(".modal_type_profile");
 // form for profile modal currently-- may have to update for capturing image form info
@@ -9,7 +6,7 @@ const imageForm = document.querySelector(".modal__form_images");
 // const for modal_type_imagepopup
 const imageModalPopup = document.querySelector(".modal_type_image-popup");
 const addPhotoModal = document.querySelector(".modal_type_images");
-// Variables for array iteration
+
 // set up for array clone- photo-grid__container li = template
 const photoGridList = document.querySelector(".photo-grid");
 
@@ -179,14 +176,6 @@ initialCards.forEach(data => {
   const card = createCardElement(data);
   photoGridList.prepend(card);
 });
-
-
-
-
-
-
-
-
 
 
 
