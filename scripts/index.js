@@ -1,15 +1,17 @@
 // variables related to forms/modals
 // toggle for addphoto modal modifier visibility
-const addPhotoModal = document.querySelector(".modal_type_images");
+
 // toggle for profile modal modifier for visbility
 const profileModal = document.querySelector(".modal_type_profile");
 // form for profile modal currently-- may have to update for capturing image form info
 const profileForm = document.querySelector(".modal__form");
+const imageForm = document.querySelector(".modal__form_images");
 // const for modal_type_imagepopup
 const imageModalPopup = document.querySelector(".modal_type_image-popup");
+const addPhotoModal = document.querySelector(".modal_type_images");
 // Variables for array iteration
 // set up for array clone- photo-grid__container li = template
-const photoGridTemplate = document.querySelector(".photo-grid-template").content.querySelector(".photo-grid__container");
+const photoGridList = document.querySelector(".photo-grid");
 
 
 // variables related to forms/modals content
@@ -21,7 +23,7 @@ const profileName = document.querySelector(".profile__title");
 // variables related to buttons
 const addButton = document.querySelector(".add-button");
 const closeButton = document.querySelector(".close-btn");
-const createButton = document.querySelector(".create-button");
+
 const editButton = document.querySelector(".edit-button");
 const closeAddImageButton = document.querySelector(".close-btn_images");
 
@@ -67,15 +69,36 @@ closeButton.addEventListener("click", () => {
 });
 // submit profile modal
 profileForm.addEventListener("submit", submitProfileModal);
-// open add image modal
+
 addButton.addEventListener("click", () => {
   toggleModalWindows(addPhotoModal);
 });
-//close add image modal
 
+//closeAddImage
+closeAddImageButton.addEventListener("click", () => {
+  toggleModalWindows(addPhotoModal);
+});
 
 photoPopupCloseButton.addEventListener("click", () => {
   toggleModalWindows(imageModalPopup);
+});
+
+// submit handler
+imageForm.addEventListener("submit", function(evt) {
+  evt.preventDefault();
+  const imageModalTitle = document.querySelector(".modal__form-control_type_title");
+  const imageModalLink = document.querySelector(".modal__form-control_type_image");
+  const newPhotoTitle = imageModalTitle.value;
+  const newPhotoImage = imageModalLink.value;
+
+  const newImageObject = {
+    name: `${newPhotoTitle}`,
+    link: `${newPhotoImage}`
+  };
+
+  const newCard = createCardElement(newImageObject);
+  photoGridList.prepend(newCard);
+  toggleModalWindows(addPhotoModal);
 });
 
 
@@ -112,67 +135,63 @@ const initialCards = [
   }
 ];
 
-// close Create button
-createButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  console.log("Hello");
-  toggleModalWindows(addPhotoModal);
 
-  //add a function that takes an object and adds it to array
-});
+function createCardElement(data) {
+  const photoGridTemplate = document.querySelector(".photo-grid-template").content.querySelector(".photo-grid__container");
+  // add to me- wrapper
 
-const imageModalIFormInput = document.querySelector(".modal__form-control_images");
-// making input equal to an object to add to array with push(
-
-closeAddImageButton.addEventListener("click", () => {
-  toggleModalWindows(addPhotoModal);
-});
-
-
-
-// array iteration
-initialCards.forEach(data => {
-
-  // photo-grid__container li = template
   const photoGridElement = photoGridTemplate.cloneNode(true);
   const photoGridImage = photoGridElement.querySelector(".photo-grid__image");
   const photoGridTitle = photoGridElement.querySelector(".photo-grid__title");
 
-  photoGridTitle.textContent //title
-  photoGridImage.src //image url
-
-  //photo-grid ul = html
-  const photoGridList = document.querySelector(".photo-grid");
-  // buttons
-  const likeButton = photoGridElement.querySelector(".like-button");
-
   photoGridTitle.textContent = data.name;
   photoGridImage.src = data.link;
   photoGridImage.alt = data.text;
-  photoGridList.prepend(photoGridElement);
 
-  // toggle image popup modal with correct info
-  photoGridImage.addEventListener("click", () => {
+  const photoGridDeleteButton = photoGridElement.querySelector(".delete-btn");
+  const likeButton = photoGridElement.querySelector(".like-button");
 
-    photoGridImageSource.src = data.link;
-    photoGridImageTitle.textContent = data.name;
-    toggleModalWindows(imageModalPopup);
-  });
-
-  // clicking like
+// toggle like
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("like-button_active");
-  });
-  const photoGridDeleteButton = photoGridElement.querySelector(".delete-btn");
-
-    //event for deleting images
-  photoGridDeleteButton.addEventListener("click", function () {
-    const photoGridItem = photoGridDeleteButton.closest(".photo-grid__container");
-    photoGridItem.remove();
-  });
-
-
 });
+
+//event for deleting images
+photoGridDeleteButton.addEventListener("click", function () {
+  const photoGridItem = photoGridDeleteButton.closest(".photo-grid__container");
+  photoGridItem.remove();
+});
+
+  // toggle image popup modal with correct info
+photoGridImage.addEventListener("click", () => {
+  const photoGridPopupImage = document.querySelector(".image-popup__image");
+  const photoGridPopupTitle = document.querySelector(".image-popup__title");
+  photoGridPopupImage.src = data.link;
+  photoGridPopupTitle.textContent = data.name;
+  toggleModalWindows(imageModalPopup);
+  });
+
+  return photoGridElement;
+}
+
+
+initialCards.forEach(data => {
+  const card = createCardElement(data);
+  photoGridList.prepend(card);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

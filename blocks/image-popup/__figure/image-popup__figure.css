@@ -1,6 +1,13 @@
 .image-popup__figure {
   position: relative;
-  border: 1px red solid;
   padding: 0;
   margin: 0;
+  max-width: 75vh;
+  max-height: 75vh;
+}
+
+@media screen and (max-width: 500px) {
+  .image-popup__figure {
+    width: 240px;
+  }
 }

@@ -10,7 +10,7 @@ Built to design from a Figma mockup
 
 * HTML
 * CSS
-* Javascript 
+* Javascript
 * BEM methodology (naming conventions and file organizations)
 * Media queries for responsive design
 * Grid and flexbox

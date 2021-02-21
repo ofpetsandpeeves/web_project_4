@@ -5,3 +5,10 @@
   height: 40px;
   left: auto;
 }
+
+@media screen and (max-width: 500px) {
+  .close-btn_images-popup {
+    right: -35px;
+    top: -30px;
+  }
+}
