@@ -73,7 +73,11 @@ function modalInputFields() {
 // universal toggle modal windows
 function toggleModalWindows(modal) {
   modal.classList.toggle("modal_opened");
-  // esc closes modals
+  if ( modal.classList.contains("modal_opened")) {
+    document.addEventListener("keydown", handleEscEvent);
+  } else {
+    document.removeEventListener("keydown", handleEscEvent);
+  }
 }
 
 // close modals with esc
@@ -172,9 +176,6 @@ imageForm.addEventListener("submit", function(evt) {
   photoGridList.prepend(newCard);
   toggleModalWindows(addPhotoModal);
 });
-
-// close event with esc key
-document.addEventListener("keydown", handleEscEvent);
 
 // toggle modals when clicking on overlay
 openedModals.forEach(modal => {
