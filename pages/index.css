@@ -17,6 +17,7 @@
 @import url('../blocks/modal/modal.css');
 @import url("../blocks/modal/_opened/modal_opened.css");
 @import url("../blocks/modal/__form-control/_images/modal__form-control_images.css");
+@import url("../blocks/modal/__form-control/_type/modal__form-control_type_error.css");
 @import url("../blocks/modal/__form-title/_images/modal__form-title_images.css");
 @import url("../blocks/modal/__form/_images/modal__form_images.css");
 @import url("../blocks/logo/logo.css");
@@ -24,6 +25,7 @@
 @import url("../blocks/main/main.css");
 @import url("../blocks/delete-btn/delete-btn.css");
 @import url("../blocks/image-popup/image-popup.css");
+@import url("../blocks/button/button.css");
 
 
 

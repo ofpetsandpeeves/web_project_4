@@ -12,3 +12,7 @@
     line-height: 0.5;
 }
 
+.modal__form-control:invalid {
+  margin: 0;
+}
+

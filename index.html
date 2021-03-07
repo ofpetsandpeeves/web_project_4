@@ -38,14 +38,16 @@
     <div class="modal modal_type_profile">
       <div class="modal__container">
         <button type="button" class="close-btn link" aria-label="close button"></button>
-        <form class="modal__form" name="profile__modal" method="POST">
+        <form class="modal__form" name="profile__modal" method="POST" novalidate>
           <h4 class="modal__form-title">Edit profile</h4>
             <!-- Form section for Name-->
-            <input placeholder="Name" type="text" name="name" class="modal__form-control modal__form-control_type_name">
+            <input id="profile-name" placeholder="Name" type="text" name="name" class="modal__form-control modal__form-control_type_name" minlength="2" maxlength="40" required>
+            <span id="profile-name-error" class="modal__error"></span>
           <!-- Form section for Title-->
-            <input placeholder="About me" type="text" name="about-me" class="modal__form-control modal__form-control_type_about">
+            <input id="profile-about" placeholder="About me" type="text" name="about-me" class="modal__form-control modal__form-control_type_about" minlength="2" maxlength="200" required>
+            <span id="profile-about-error" class="modal__error"></span>
           <!-- Save button -->
-          <button type="submit" class="submit-button link" aria-label="save button"></button>
+          <button type="submit" class="button submit-button link" aria-label="save button"></button>
         </form>
       </div>
     </div>
@@ -53,14 +55,16 @@
     <div class="modal modal_type_images">
       <div class="modal__container">
         <button type="button" class="close-btn close-btn_images link" aria-label="close button"></button>
-        <form class="modal__form modal__form_images" name="image__form" method="POST">
+        <form class="modal__form modal__form_images" name="image__form" method="POST" novalidate>
           <h4 class="modal__form-title modal__form-title_images">New place</h4>
-            <!-- Form section for Title -->
-            <input placeholder="Title" type="text" name="title" class="modal__form-control modal__form-control_images modal__form-control_type_title">
-          <!-- Form section for Link-->
-            <input placeholder="Image link" type="link" name="image-link" class="modal__form-control modal__form-control_images modal__form-control_type_image">
+            <!-- Form section for Images Title -->
+            <input id="images-text" placeholder="Title" type="text" name="title" class="modal__form-control modal__form-control_images modal__form-control_type_title" minlength="1" maxlength="30" required>
+            <span id="images-text-error" class="modal__error"></span>
+          <!-- Form section for Images Link-->
+            <input id="images-url" placeholder="Image link" type="url" name="image-link" class="modal__form-control modal__form-control_images modal__form-control_type_image" required>
+            <span id="images-url-error" class="modal__error"></span>
           <!-- Create button -->
-          <button type="submit" class="create-button link" aria-label="create button"></button>
+          <button type="submit" class="button create-button link" aria-label="create button"></button>
         </form>
       </div>
     </div>
@@ -85,6 +89,7 @@
         </li>
     </template>
   </div>
-<script src="scripts/index.js"></script>
+  <script src="scripts/index.js"></script>
+  <script src="scripts/validation.js"></script>
 </body>
 </html>

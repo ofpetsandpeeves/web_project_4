@@ -1,0 +1,5 @@
+.modal__form-control_type_error {
+  border-style: hidden hidden solid hidden;
+  border-width: 1px;
+  border-color: rgba(255, 0, 0);
+}

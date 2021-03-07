@@ -1,4 +1,6 @@
 // modals and forms
+
+const openedModals = Array.from(document.getElementsByClassName("modal"));
 const profileModal = document.querySelector(".modal_type_profile");
 const profileForm = document.querySelector(".modal__form");
 const imageForm = document.querySelector(".modal__form_images");
@@ -71,6 +73,15 @@ function modalInputFields() {
 // universal toggle modal windows
 function toggleModalWindows(modal) {
   modal.classList.toggle("modal_opened");
+  // esc closes modals
+}
+
+// close modals with esc
+function handleEscEvent(evt) {
+  const modals = document.querySelector(".modal_opened");
+  if (evt.key === "Escape" && modals) {
+    toggleModalWindows(modals);
+  }
 }
 
 // Open profile edit button
@@ -160,6 +171,19 @@ imageForm.addEventListener("submit", function(evt) {
   const newCard = createCardElement(newImageObject);
   photoGridList.prepend(newCard);
   toggleModalWindows(addPhotoModal);
+});
+
+// close event with esc key
+document.addEventListener("keydown", handleEscEvent);
+
+// toggle modals when clicking on overlay
+openedModals.forEach(modal => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target.classList.contains("modal")) {
+      toggleModalWindows(modal);
+      console.log("test");
+    }
+  });
 });
 
 // image card array iteration
