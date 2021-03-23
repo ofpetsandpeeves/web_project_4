@@ -150,6 +150,9 @@ imageForm.addEventListener("submit", function(evt) {
     name: imageModalTitle.value,
     link: imageModalLink.value
   }, ".photo-grid__container");
+  // reset input values after submit
+  imageModalTitle.value = "";
+  imageModalLink.value = "";
   toggleModalWindows(addPhotoModal);
 });
 

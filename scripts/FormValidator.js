@@ -40,6 +40,8 @@ class FormValidator {
   _setEventListeners() {
     const inputs = Array.from(this._formElement.querySelectorAll(this._objects.inputSelector));
     this._submitButton = this._formElement.querySelector(this._objects.submitButtonSelector);
+     // disable submit button on load
+    this._toggleSubmitButton(inputs);
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
       this._checkInputValidity(input);
@@ -52,6 +54,9 @@ class FormValidator {
     //disable default browser behavior
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      //disable submit button on form submit
+      this._submitButton.classList.add(this._objects.inactiveButtonClass);
+      this._submitButton.disabled = true;
     });
     this._setEventListeners();
   }
