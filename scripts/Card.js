@@ -35,8 +35,6 @@ class Card {
   }
 
   _handleDeleteButton() {
-    // const photoGridDeleteButton = this._cardElement.querySelector(".delete-btn");
-    // const photoGridItem = photoGridDeleteButton.closest(".photo-grid__container");
     this._cardElement.remove();
   }
 
@@ -71,7 +69,6 @@ class Card {
     photoGridImage.src = this._data.link;
 
     this._setEventListeners();
-
 
     return this._cardElement;
   }

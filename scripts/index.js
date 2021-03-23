@@ -1,4 +1,5 @@
-import Card from "./Card.js";
+import Card from "./Card.js"
+import FormValidator from "./FormValidator.js"
 
 const openedModals = Array.from(document.getElementsByClassName("modal"));
 const profileModal = document.querySelector(".modal_type_profile");
@@ -11,19 +12,30 @@ const formAboutMeInput = document.querySelector(".modal__form-control_type_about
 const formNameInput = document.querySelector(".modal__form-control_type_name");
 const profileAboutMe = document.querySelector(".profile__subtitle");
 const profileName = document.querySelector(".profile__title");
-// const imageModalTitle = document.querySelector(".modal__form-control_type_title");//value
-// const imageModalLink = document.querySelector(".modal__form-control_type_image"); //value
-// const photoGridPopupImage = document.querySelector(".image-popup__image");
-// const photoGridPopupTitle = document.querySelector(".image-popup__title");
-// variables related to buttons
 const addButton = document.querySelector(".add-button");
 const closeButton = document.querySelector(".close-btn");
 const editButton = document.querySelector(".edit-button");
 const closeAddImageButton = document.querySelector(".close-btn_images");
 const photoPopupCloseButton = document.querySelector(".close-btn_images-popup");
+const imageModalTitle = document.querySelector(".modal__form-control_type_title");//value
+const imageModalLink = document.querySelector(".modal__form-control_type_image"); //value
 // set up for array clone- photo-grid__container li = template
 const photoGridList = document.querySelector(".photo-grid");
 
+const objects = {
+  inputSelector: ".modal__form-control",
+  submitButtonSelector: ".button",
+  inactiveButtonClass: "button_disabled",
+  inputErrorClass: "modal__form-control_type_error",
+  errorClass: "modal__error"
+};
+
+const addCardForm = document.querySelector(".modal__form_images");
+const editProfileForm = document.querySelector(".modal__form_profile");
+const addCardFormValidator = new FormValidator(objects, addCardForm);
+const editProfileFormValidator = new FormValidator(objects, editProfileForm);
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
 
 //array for places
 const initialCards = [
@@ -58,7 +70,6 @@ const initialCards = [
     text: "Earth"
   }
 ];
-
 
 function editModalInputFields() {
   profileName.textContent = formNameInput.value;
@@ -101,40 +112,6 @@ function submitProfileModal(e) {
   toggleModalWindows(profileModal);
 }
 
-// function createCardElement(data) {
-//   const photoGridTemplate = document.querySelector(".photo-grid-template").content.querySelector(".photo-grid__container");
-//   // add to me- wrapper
-//   const photoGridElement = photoGridTemplate.cloneNode(true);
-//   const photoGridImage = photoGridElement.querySelector(".photo-grid__image");
-//   const photoGridTitle = photoGridElement.querySelector(".photo-grid__title");
-//   const photoGridDeleteButton = photoGridElement.querySelector(".delete-btn");
-//   const likeButton = photoGridElement.querySelector(".like-button");
-
-//   photoGridTitle.textContent = data.name;
-//   photoGridImage.src = data.link;
-//   photoGridImage.alt = data.text;
-
-// // toggle like
-//   likeButton.addEventListener("click", () => {
-//     likeButton.classList.toggle("like-button_active");
-//   });
-
-// //event for deleting images
-//   photoGridDeleteButton.addEventListener("click", function () {
-//     const photoGridItem = photoGridDeleteButton.closest(".photo-grid__container");
-//     photoGridItem.remove();
-//   });
-
-//   // toggle image popup modal with correct info
-//   photoGridImage.addEventListener("click", () => {
-//     photoGridPopupImage.src = data.link;
-//     photoGridPopupTitle.textContent = data.name;
-//     toggleModalWindows(imageModalPopup);
-//   });
-
-//   return photoGridElement;
-// }
-
 // edit profile info
 editButton.addEventListener("click", openProfileModal);
 
@@ -161,19 +138,18 @@ photoPopupCloseButton.addEventListener("click", () => {
   toggleModalWindows(imageModalPopup);
 });
 
+const createCards = (data) => {
+  const card = new Card(data, ".photo-grid-template");
+  photoGridList.prepend(card.renderCard());
+}
+
 // submit handler for adding image
 imageForm.addEventListener("submit", function(evt) {
   evt.preventDefault();
-  // const newPhotoTitle = imageModalTitle.value;
-  // const newPhotoImage = imageModalLink.value;
-
-  // const newImageObject = {
-  //   name: `${newPhotoTitle}`,
-  //   link: `${newPhotoImage}`
-  // };
-
-  const card = new Card(data, ".photo-grid-template");
-  photoGridList.prepend(card.renderCard());
+  createCards({
+    name: imageModalTitle.value,
+    link: imageModalLink.value
+  }, ".photo-grid__container");
   toggleModalWindows(addPhotoModal);
 });
 
@@ -182,7 +158,6 @@ openedModals.forEach(modal => {
   modal.addEventListener("click", (evt) => {
     if (evt.target.classList.contains("modal")) {
       toggleModalWindows(modal);
-      console.log("test");
     }
   });
 });

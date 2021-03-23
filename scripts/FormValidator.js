@@ -1,66 +1,60 @@
-function showErrorMesssage(input, objects) {
-  const errorMessage = document.querySelector("#" + input.id + "-error");
-  console.log(errorMessage);
-  errorMessage.textContent = input.validationMessage;
-  errorMessage.classList.add(objects.errorClass);
-  input.classList.add(objects.inputErrorClass);
-}
-
-function hideErrorMesssage(input, objects) {
-  const errorMessage = document.querySelector("#" + input.id + "-error");
-  errorMessage.textContent = " ";
-  errorMessage.classList.remove(objects.errorClass);
-  input.classList.remove(objects.inputErrorClass);
-}
-
-function checkInputValidity(input, form) {
-  if (input.validity.valid) {
-    hideErrorMesssage(input, form)
-  } else {
-    showErrorMesssage(input, form)
+class FormValidator {
+  constructor(objects, formElement) {
+    this._objects = objects;
+    this._formElement = formElement;
   }
-}
 
-function toggleSubmitButton(inputs, submitButton, objects) {
-  const isValid = inputs.every((input) => input.validity.valid)
-  if (isValid) {
-    submitButton.classList.remove(objects.inactiveButtonClass);
-    submitButton.disabled = false;
-  } else {
-    submitButton.classList.add(objects.inactiveButtonClass);
-    submitButton.disabled = true;
+  _showErrorMessage(input) {
+    const errorMessage = this._formElement.querySelector("#" + input.id + "-error");
+    errorMessage.textContent = input.validationMessage;
+    errorMessage.classList.add(this._objects.errorClass);
+    input.classList.add(this._objects.inputErrorClass);
   }
-}
 
-const setEventListeners = (objects, form) => {
-  const inputs = Array.from(form.querySelectorAll(objects.inputSelector));
-  const submitButton = form.querySelector(objects.submitButtonSelector);
-  inputs.forEach((input) => {
-    input.addEventListener("input", () => {
-    checkInputValidity(input, objects);
-    toggleSubmitButton(inputs, submitButton, objects);
+  _hideErrorMessage(input) {
+    const errorMessage = this._formElement.querySelector("#" + input.id + "-error");
+    errorMessage.textContent = " ";
+    errorMessage.classList.remove(this._objects.errorClass);
+    input.classList.remove(this._objects.inputErrorClass);
+  }
+
+  _checkInputValidity(input) {
+    if (input.validity.valid) {
+      this._hideErrorMessage(input);
+    } else {
+      this._showErrorMessage(input);
+    }
+  }
+
+  _toggleSubmitButton(inputs) {
+    const isValid = inputs.every((input) => input.validity.valid)
+    if (isValid) {
+      this._submitButton.classList.remove(this._objects.inactiveButtonClass);
+      this._submitButton.disabled = false;
+    } else {
+      this._submitButton.classList.add(this._objects.inactiveButtonClass);
+      this._submitButton.disabled = true;
+    }
+  }
+
+  _setEventListeners() {
+    const inputs = Array.from(this._formElement.querySelectorAll(this._objects.inputSelector));
+    this._submitButton = this._formElement.querySelector(this._objects.submitButtonSelector);
+    inputs.forEach((input) => {
+      input.addEventListener("input", () => {
+      this._checkInputValidity(input);
+      this._toggleSubmitButton(inputs);
+      });
     });
-  });
-}
+  }
 
-function enableValidation(objects) {
-  const forms = Array.from(document.querySelectorAll(objects.formSelector));
-  forms.forEach((form) => {
+  enableValidation() {
     //disable default browser behavior
-    form.addEventListener("submit", (evt) => {
+    this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(objects, form);
-  });
-
+    this._setEventListeners();
+  }
 }
 
-// object holding selectors, which you will call later
-enableValidation({
-  formSelector: ".modal__form",
-  inputSelector: ".modal__form-control",
-  submitButtonSelector: ".button",
-  inactiveButtonClass: "button_disabled",
-  inputErrorClass: "modal__form-control_type_error",
-  errorClass: "modal__error"
-});
+export default FormValidator;
