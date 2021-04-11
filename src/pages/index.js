@@ -43,8 +43,8 @@ const createCards = cardItems => {
 const cards = new Section (
   {
     items: initialCards,
-    renderer: (items) => {
-      cards.addItem(createCards(items));
+    renderer: (cardItems) => {
+      cards.addItem(createCards(cardItems));
     },
   },
   ".photo-grid",
@@ -61,8 +61,8 @@ imagePopup.setEventListeners();
 const editImageForm = new PopupWithForm(
   {
   popupSelector: ".modal_type_images",
-  submitHandler: (item) => {
-    document.querySelector(".photo-grid").prepend(createCards(item));
+  submitHandler: (cardItems) => {
+    document.querySelector(".photo-grid").prepend(createCards(cardItems));
   }
 });
 editImageForm.setEventListeners();
@@ -73,18 +73,13 @@ addButton.addEventListener("click", () =>
 })
 
 
-// edit profile info
-const userInput = new UserInfo({
-  name: ".profile__title",
-  job: ".profile__subtitle"
-})
 
 // edit profile form
 const editProfileForm = new PopupWithForm({
   popupSelector: ".modal_type_profile",
-  submitHandler: (item) =>
+  submitHandler: (items) =>
   {
-    const userInput = new UserInfo(item);
+    const userInput = new UserInfo(items);
     userInput.setUserInfo();
   }
   })
@@ -94,7 +89,6 @@ editProfileForm.setEventListeners();
 
 //click event for edit profile form
 editButton.addEventListener("click", () => {
-  userInput.getUserInfo();
   editProfileForm.open();
 })
 
@@ -106,17 +100,12 @@ formArray.forEach((element)=> {
 })
 
 
-
 /*
 edit profile form:
   - form input values on open() do not reflect text content of h1 and p
-  - on submit, form h1 (name) is the only one saved to DOM
 
 add image form:
   - submit works but returns a blank card to DOM with no info
-
-validator:
-  - error in console about null value when trying to work with classList on close button
 
 misc:
   - check what consoles for private input values in submit for PopupWithForm setEventListeners();

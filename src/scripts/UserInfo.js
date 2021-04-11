@@ -1,21 +1,21 @@
 import {profileName, profileJob} from "../utils/constants.js";
 
 class UserInfo {
-  constructor ({name, job}) {
+  constructor ({name, link}) {
     this._name = name;
-    this._job = job;
+    this._link = link;
   }
 
   getUserInfo() {
     return {
       name: this._name,
-      job: this._job
+      link: this._link
     }
   }
 
   setUserInfo() {
     profileName.textContent = this._name; //h1
-    profileJob.textContent = this._job; //p
+    profileJob.textContent = this._link; //p
   }
 }
 
