@@ -51,17 +51,10 @@ const objects = {
 
 const editButton = document.querySelector(".edit-button");
 const addButton = document.querySelector(".add-button");
-const addCardForm = document.querySelector(".modal__form_images");
-
 
 const formName = document.querySelector(".modal__form-control_type_name"); //text content
-const formJob = document.querySelector("modal__form-control_type_about"); //text content
-
-const imageModalTitle = document.querySelector(".modal__form-control_type_title");//value
-const imageModalLink = document.querySelector(".modal__form-control_type_image"); //value
-
-const profileName = document.querySelector(".profile__title"); //text content h1
-const profileJob = document.querySelector(".profile__subtitle"); //text content p
+const formJob = document.querySelector(".modal__form-control_type_about"); //text content
 
 
-export {initialCards, objects, editButton, addButton, addCardForm, formName, formJob, imageModalTitle, imageModalLink, profileName, profileJob}
+
+export {initialCards, objects, editButton, addButton, formName, formJob}

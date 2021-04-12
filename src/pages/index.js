@@ -4,13 +4,8 @@ import {
   objects,
   editButton,
   addButton,
-  addCardForm,
   formName,
-  formJob,
-  imageModalTitle,
-  imageModalLink,
-  profileName,
-  profileJob
+  formJob
 }
 from "../utils/constants.js";
 
@@ -70,26 +65,30 @@ editImageForm.setEventListeners();
 addButton.addEventListener("click", () =>
 {
   editImageForm.open();
+
 })
 
 
+const userInformation = new UserInfo({
+  nameTitle: ".profile__title",
+  jobTitle: ".profile__subtitle"
+});
 
 // edit profile form
 const editProfileForm = new PopupWithForm({
   popupSelector: ".modal_type_profile",
-  submitHandler: (items) =>
-  {
-    const userInput = new UserInfo(items);
-    userInput.setUserInfo();
+  submitHandler: () => {
+    userInformation.setUserInfo(formName.value, formJob.value);
   }
-  })
-
+});
 editProfileForm.setEventListeners();
-
 
 //click event for edit profile form
 editButton.addEventListener("click", () => {
   editProfileForm.open();
+  const {name, job} = userInformation.getUserInfo();
+  formName.value = name;
+  formJob.value = job;
 })
 
 
@@ -98,15 +97,3 @@ formArray.forEach((element)=> {
   const formValidation = new FormValidator(objects, element);
   formValidation.enableValidation();
 })
-
-
-/*
-edit profile form:
-  - form input values on open() do not reflect text content of h1 and p
-
-add image form:
-  - submit works but returns a blank card to DOM with no info
-
-misc:
-  - check what consoles for private input values in submit for PopupWithForm setEventListeners();
-*/
