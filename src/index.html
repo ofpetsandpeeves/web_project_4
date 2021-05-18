@@ -15,13 +15,19 @@
     </header>
     <main class="main">
       <section class="profile">
-        <img src="<%= require('./images/RavenVisorOff.png')%>" class="profile__avatar" alt="profile image">
+
+        <div class="profile__image-wrapper">
+          <img src="<%= require('./images/RavenVisorOff.png')%>" class="profile__avatar" alt="profile image">
+          <div class="overlay">
+            <div class="profile__edit-image"></div>
+          </div>
+        </div>
         <div class="profile__info">
           <div class="profile__info-container">
-            <h1 class="profile__title">Dogue GoudBeau</h1>
+            <h1 class="profile__title"></h1>
             <button type="button" class="edit-button link" aria-label="edit button"></button>
           </div>
-          <p class="profile__subtitle">Explorer</p>
+          <p class="profile__subtitle"></p>
         </div>
         <button type="button" class="add-button link" aria-label="add button"></button>
       </section>
@@ -69,12 +75,34 @@
     </div>
     <!-- Modal for image popup-->
     <div class="modal modal_type_image-popup">
-      <div class="modal__container image-popup">
+      <div class="image-popup">
         <figure class="image-popup__figure">
           <img class="image-popup__image" src= " " alt= "">
           <button type="button" class="close-btn close-btn_images-popup link" aria-label="close button"></button>
           <figcaption class="image-popup__title"></figcaption>
         </figure>
+      </div>
+    </div>
+    <!-- Popup for deleting card-->
+    <div class="modal modal_type_delete-card">
+      <div class="delete-card">
+        <button type="button" class="close-btn link" aria-label="close button"></button>
+        <h2>Are you sure?</h2>
+        <button type="button" class="submit"></button>
+      </div>
+    </div>
+    <!-- Popup for changing profile image-->
+    <div class="modal modal_type_edit-image">
+      <div class="modal__container">
+        <button type="button" class="close-btn link" aria-label="close button"></button>
+        <form class="modal__form modal__form_profile-image" name="profile__modal-image" method="POST" novalidate>
+          <h4 class="modal__form-title">Change profile picture</h4>
+            <!-- Form section for input-->
+            <input id="profile-image" placeholder="Link" type="url" name="link" class="modal__form-control modal__form-control_type_image" minlength="2" maxlength="40" required>
+            <span id="profile-image-error" class="modal__error"></span>
+          <!-- Save button -->
+          <button type="submit" class="button submit-button link" aria-label="save button"></button>
+        </form>
       </div>
     </div>
     <template class="photo-grid-template">

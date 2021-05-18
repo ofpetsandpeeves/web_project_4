@@ -51,10 +51,11 @@ const objects = {
 
 const editButton = document.querySelector(".edit-button");
 const addButton = document.querySelector(".add-button");
+const editProfileImage = document.querySelector(".profile__edit-image");
 
 const formName = document.querySelector(".modal__form-control_type_name"); //text content
 const formJob = document.querySelector(".modal__form-control_type_about"); //text content
 
 
 
-export {initialCards, objects, editButton, addButton, formName, formJob}
+export {initialCards, objects, editButton, addButton, formName, formJob, editProfileImage}

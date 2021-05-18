@@ -1,11 +1,16 @@
 class Card {
-  constructor({cardItems, image}, templateElement) {
+  constructor({cardItems, image, handleDeleteCard}, templateElement) {
     this._name = cardItems.name;
     this._link = cardItems.link;
     this._image = image;
+    this._id = cardItems._id;
     this._templateElement = templateElement;
+    this._handleDeleteCard = handleDeleteCard;
   }
 
+  getId() {
+    return this._id;
+  }
   _getTemplate() {
     const photoGridTemplate = document
     .querySelector(this._templateElement)
@@ -27,7 +32,7 @@ class Card {
   this._cardElement.querySelector(".like-button").addEventListener("click", (evt) => this._handleLikeButton(evt));
 
   //event for deleting images
-  this._cardElement.querySelector(".delete-btn").addEventListener("click", () => this._handleDeleteButton());
+  this._cardElement.querySelector(".delete-btn").addEventListener("click", () => this._handleDeleteCard());
 
   // toggle image popup modal with correct info
   this._cardElement.querySelector(".photo-grid__image").addEventListener("click", () => {
